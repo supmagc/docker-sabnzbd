@@ -26,7 +26,7 @@ $ docker create --name=sabnzbd \
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -34,12 +34,12 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-p 8080` - http port for the webui
 * `-p 9090` - https port for the webui *see note below*
 * `-v /config` - local path for sabnzbd config files
-* `-v /downloads` local path for finished downloads
-* `-v /incomplete-downloads` local path for incomplete-downloads - *optional*
-* `-v /nzbtomedia` local path for the nzbToMedia config files
+* `-v /downloads` - local path for finished downloads
+* `-v /incomplete-downloads` - local path for incomplete-downloads - *optional*
+* `-v /nzbtomedia` - local path for the nzbToMedia config files
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
-* `-e TZ` for setting timezone information, eg Europe/London
+* `-e TZ` - for setting timezone information, eg Europe/London
 
 It is based on ubuntu xenial with s6 overlay, for shell access whilst the container is running do `docker exec -it sabnzbd /bin/bash`.
 
@@ -63,9 +63,6 @@ See here for info on some of the switch settings for sabnzbd http://wiki.sabnzbd
 ## Info
 
 * Shell access whilst the container is running: `docker exec -it sabnzbd /bin/bash`
-
 * To monitor the logs of the container in realtime: `docker logs -f sabnzbd`
-
 * container version number: `docker inspect -f '{{ index .Config.Labels "build_version" }}' sabnzbd`
-
-* image version number: `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/sabnzbd`
+* image version number: `docker inspect -f '{{ index .Config.Labels "build_version" }}' supmagc/sabnzbd`

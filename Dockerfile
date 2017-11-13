@@ -1,6 +1,11 @@
 FROM linuxserver/sabnzbd
 MAINTAINER supmagc
 
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+LABEL build_version="supmagc Transmission version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+
 # install packages
 RUN \
  apt-get update && \
